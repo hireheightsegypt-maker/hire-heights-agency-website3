@@ -1,0 +1,422 @@
+/*
+    --------------------------------
+    Global and Variable Definitions
+    --------------------------------
+*/
+
+:root {
+    /* Color Palette Enforcement */
+    --color-white: #ffffff;
+    --color-blue: #0077b6;
+    --color-black: #222222;
+
+    /* Spacing and Layout */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+
+    /* Transitions for interactive animations */
+    --transition-speed: 0.3s;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --color-white: #121212;
+    --color-black: #f0f0f0;
+    background-color: rgba(0, 0, 0, 0.85); 
+    background-blend-mode: overlay;
+}
+
+
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* FIX: Set full-page static background and base styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--color-white); 
+    color: var(--color-black); 
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    
+    /* Key properties for fixed background image (Homepage only) */
+    background-image: url('success-background.png');
+    background-size: cover;          
+    background-position: center;     
+    background-attachment: fixed;    
+    
+    /* Overlay for content readability */
+    background-color: rgba(0, 0, 0, 0.7); 
+    background-blend-mode: overlay;      
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/*
+    --------------------------------
+    Typography and Color Rules
+    --------------------------------
+*/
+
+/* Global blue for titles */
+h1, h2, h3, .section-title, .main-title, .slogan, .tagline {
+    color: var(--color-blue);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Global black for body text */
+p, li, address, blockquote, .description, .headline {
+    color: var(--color-black);
+}
+
+/*
+    --------------------------------
+    Header and Navigation
+    --------------------------------
+*/
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-white);
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: 10px;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-blue);
+}
+
+.site-nav button {
+    padding: 0.5rem 1rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid var(--color-blue);
+    color: var(--color-blue);
+    border-radius: 4px;
+    transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed);
+}
+
+.site-nav button:hover {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+/*
+    --------------------------------
+    Call-to-Action Buttons
+    --------------------------------
+*/
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 1rem;
+    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.primary-cta {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    border: 2px solid var(--color-blue);
+}
+.primary-cta:hover {
+    background-color: #005f99; 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 119, 182, 0.3);
+}
+
+.secondary-cta {
+    background-color: transparent;
+    color: var(--color-blue);
+    border: 2px solid var(--color-blue);
+    margin-left: 1rem;
+}
+.secondary-cta:hover {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+/*
+    --------------------------------
+    Section Styling
+    --------------------------------
+*/
+
+/* FIX: Content sections have semi-transparent background for readability */
+section {
+    padding: var(--spacing-lg) 0;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.dark-mode section {
+    background-color: rgba(18, 18, 18, 0.9);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+    font-size: 2rem;
+}
+
+/* Hero Section (Homepage and Video Containers) */
+.hero-section {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    padding-top: 0;
+    margin-bottom: var(--spacing-lg); 
+    background-color: transparent; 
+}
+
+/* FIX: Video Scaling and Aspect Ratio */
+.hero-video-container {
+    width: 100%;
+    /* NEW: Use aspect ratio trick (16:9) for proper video scaling */
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+}
+
+.hero-video {
+    /* Ensure video covers the container completely */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    max-width: 100%;
+}
+
+/* Hero Content - White Text FIX (For Homepage only, over background image) */
+.hero-content {
+    padding: var(--spacing-md);
+    max-width: 800px; 
+    text-align: center; 
+    color: var(--color-white); 
+}
+
+/* FIX: Force white color for all hero text in Light Mode (Homepage) */
+.hero-content h1, 
+.hero-content h2, 
+.hero-content .main-title, 
+.hero-content .slogan, 
+.hero-content .tagline, 
+.hero-content .sub-headline {
+    color: var(--color-white) !important; 
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); 
+}
+
+/* FIX: Force light color for all hero text in Dark Mode (Homepage) */
+body.dark-mode .hero-content h1,
+body.dark-mode .hero-content h2,
+body.dark-mode .hero-content .main-title,
+body.dark-mode .hero-content .slogan,
+body.dark-mode .hero-content .tagline,
+body.dark-mode .hero-content .sub-headline {
+    color: var(--color-black) !important; 
+    text-shadow: none; 
+}
+
+.main-title {
+    font-size: 3.5rem;
+}
+
+
+/* Pillars Grid Section (for all 12/6 box layouts) */
+.pillars-grid {
+    display: grid;
+    /* Default to 1 column for mobile, then auto-fit based on explicit styles in HTML */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-md);
+    justify-items: center; 
+}
+
+.pillar-card {
+    background-color: var(--color-white);
+    padding: var(--spacing-md);
+    border: 2px solid transparent; 
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all var(--transition-speed) ease-in-out;
+    width: 100%; 
+    max-width: 450px; /* Increased max width for better 2/3 column layout */
+}
+
+body.dark-mode .pillar-card {
+    background-color: #2a2a2a;
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    border-color: var(--color-blue); 
+}
+
+.pillar-icon {
+    font-size: 3rem;
+    color: var(--color-blue); 
+    margin-bottom: 1rem;
+}
+
+/* Testimonial Section */
+.testimonial-section {
+    background-color: rgba(0, 0, 0, 0.6); 
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+body.dark-mode .testimonial-section {
+    background-color: rgba(0, 0, 0, 0.85); 
+}
+
+.testimonial-section p, 
+.testimonial-section footer,
+.testimonial-section .section-title {
+    color: var(--color-white);
+}
+
+body.dark-mode .testimonial-section p, 
+body.dark-mode .testimonial-section footer,
+body.dark-mode .testimonial-section .section-title {
+     color: var(--color-black);
+}
+
+.testimonial-carousel-wrapper {
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-start; 
+    gap: var(--spacing-md); 
+    flex-wrap: nowrap; 
+    overflow-x: auto; 
+    padding-bottom: 15px; 
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    border: 2px solid transparent; 
+    transition: border-color var(--transition-speed), transform var(--transition-speed);
+    width: 30%; 
+    min-width: 300px; 
+    flex-shrink: 0; 
+}
+
+body.dark-mode .testimonial-card {
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.testimonial-card:hover {
+    border-color: var(--color-blue); 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.testimonial-card p {
+    color: var(--color-black); 
+}
+
+/*
+    --------------------------------
+    Footer
+    --------------------------------
+*/
+
+.site-footer {
+    text-align: center;
+    padding: var(--spacing-sm);
+    background-color: #f0f0f0;
+    color: var(--color-black);
+}
+
+body.dark-mode .site-footer {
+    background-color: #0a0a0a;
+}
+
+
+/*
+    --------------------------------
+    RTL (Right-to-Left) Arabic Mode FIX
+    --------------------------------
+*/
+
+/* Global Direction and Alignment */
+body.rtl {
+    direction: rtl; /* Flip reading direction */
+    text-align: right;
+}
+
+/* Specific elements that need left/right adjustments */
+body.rtl .site-header {
+    /* Flip the order of the logo and nav bar */
+    flex-direction: row-reverse;
+}
+
+body.rtl .logo-container {
+    /* Swap logo image and brand name position */
+    flex-direction: row-reverse;
+}
+
+body.rtl .logo {
+    /* Adjust spacing */
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+body.rtl .site-nav button,
+body.rtl .secondary-cta {
+    /* Adjust spacing for buttons */
+    margin-left: 0;
+    margin-right: 0.5rem;
+}
+
+body.rtl .secondary-cta {
+    /* Adjust spacing for CTA buttons */
+    margin-right: 1rem;
+    margin-left: 0;
+}
+
+body.rtl .testimonial-card footer {
+    /* Right align footer text */
+    text-align: left;
+}
