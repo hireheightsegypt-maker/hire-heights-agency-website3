@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Consulting - Hire Heights</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <img src="logo.png" alt="Hire Heights Logo" class="logo"> 
+            <span class="brand-name">Hire Heights</span>
+        </div>
+        <nav class="site-nav">
+            <a href="index.html" class="cta-button secondary-cta">Home</a>
+            <a href="client-services.html" class="cta-button secondary-cta">Client Services</a>
+            <a href="talent-services.html" class="cta-button secondary-cta">Talent Services</a>
+            <a href="recruiter-solutions.html" class="cta-button secondary-cta">Recruiter Solutions</a>
+            <button id="lang-toggle" aria-label="Toggle language between English and Arabic">EN/AR</button>
+            <button id="dark-mode-toggle" aria-label="Toggle between light and dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        
+        <section class="hero-section" style="padding: 0; margin-bottom: 2rem; background-color: transparent;">
+            <div class="hero-video-container">
+                <video src="consult-video.mp4" autoplay loop muted playsinline class="hero-video"></video>
+            </div>
+        </section>
+
+        <section class="page-hero-section container" style="padding-top: 0; padding-bottom: 4rem; text-align: center;">
+            <h1 class="main-title">Business & Growth Consulting Services</h1>
+            <h2 class="sub-headline">Develop robust strategies, optimize every workflow, and build scalable digital products to achieve operational excellence and sustainable growth.</h2>
+        </section>
+
+        <section class="services-grid-section container">
+            <h2 class="section-title">Our Strategic Consulting Portfolio</h2>
+            
+            <div class="pillars-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); max-width: 900px; margin: 0 auto;">
+                
+                <article class="pillar-card process-card">
+                    <i class="fas fa-sitemap pillar-icon"></i>
+                    <h3>Strategic Business & Growth Planning</h3>
+                    <p class="description">We partner with startups and scaling teams to develop robust, long-term strategic plans, ensuring you avoid costly missteps and build a resilient framework from the very beginning.</p>
+                </article>
+
+                <article class="pillar-card process-card">
+                    <i class="fas fa-sliders-h pillar-icon"></i>
+                    <h3>Operational Excellence & Workflow Optimization</h3>
+                    <p class="description">We optimize your operations to a lean, efficient state by identifying execution bottlenecks and streamlining workflows, helping you save valuable resources and protect your team from costly rework.</p>
+                </article>
+
+                <article class="pillar-card process-card">
+                    <i class="fas fa-tachometer-alt pillar-icon"></i>
+                    <h3>Agile Project & Product Delivery</h3>
+                    <p class="description">Our expertise in Agile methodology ensures your projects and products are delivered with speed and precision. We help you implement scalable systems that cut delivery timelines for greater consistency.</p>
+                </article>
+
+                <article class="pillar-card process-card">
+                    <i class="fas fa-chart-line pillar-icon"></i>
+                    <h3>Marketing & Brand Strategy</h3>
+                    <p class="description">We develop data-driven marketing plans that align with your core business goals. Our strategic approach ensures your brand message is clear and effective, helping you attract the right customers from day one.</p>
+                </article>
+
+                <article class="pillar-card process-card">
+                    <i class="fas fa-crosshairs pillar-icon"></i>
+                    <h3>Performance Management System Design</h3>
+                    <p class="description">We design and implement tailored performance management frameworks, including KPIs and OKRs, to give your team clear direction and measure success against business objectives.</p>
+                </article>
+
+                <article class="pillar-card process-card">
+                    <i class="fas fa-code pillar-icon"></i>
+                    <h3>App and Web Development Projects from Scratch</h3>
+                    <p class="description">We lead the development of your digital products from concept to launch. We focus on building resilient, scalable platforms that are built to spec, delivered on time, and ready to grow with your business.</p>
+                </article>
+
+            </div>
+        </section>
+        
+        <section class="final-cta-section">
+            <div class="container">
+                <h2 class="section-title">Ready to Transform Your Business?</h2>
+                <div class="cta-buttons-group">
+                    <a href="mailto:consult@hireheights.online" class="cta-button primary-cta">Contact Us</a>
+                    <a href="https://hire-heights-agency-website3.netlify.app/" target="_blank" class="cta-button secondary-cta">Schedule a Free Consultation</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; <span id="current-year"></span> Hire Heights. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
