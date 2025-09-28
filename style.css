@@ -1,0 +1,90 @@
+/* Testimonial Section - EDITED */
+.testimonial-section {
+    background-color: #f7f7f7; 
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    /* EDITED: Background Image */
+    background-image: url('success-background.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed; 
+    color: var(--color-white); 
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); 
+}
+
+/* EDITED: Dark mode adjustments for testimonial section */
+body.dark-mode .testimonial-section {
+    background-color: rgba(0, 0, 0, 0.7); 
+    background-blend-mode: multiply; 
+    color: var(--color-black); 
+}
+
+/* EDITED: Ensure section title is centered and styled for the background */
+.testimonial-section .section-title {
+    color: var(--color-white); 
+    text-align: center; 
+    margin-bottom: var(--spacing-lg);
+    z-index: 10; /* Ensures title is above any overlapping elements */
+    position: relative; /* Allows z-index to work */
+}
+
+.testimonial-carousel-wrapper {
+    /* EDITED: We are changing from 'grid' to 'flex' for better control over forced horizontal alignment */
+    display: flex; 
+    justify-content: center; /* Center the group of cards horizontally */
+    align-items: flex-start; /* Align cards to the top of the container */
+    gap: var(--spacing-md); /* Space between the cards */
+    flex-wrap: nowrap; /* CRITICAL: Prevents wrapping to the next line */
+    overflow-x: auto; /* Optional: adds horizontal scroll if screen is too small */
+    padding-bottom: 15px; /* Add padding for a potential scrollbar */
+}
+
+/* We need a media query to ensure the flex box works correctly on desktop */
+@media (min-width: 1024px) {
+    .testimonial-carousel-wrapper {
+        /* On large screens, we force no wrapping */
+        flex-wrap: nowrap; 
+    }
+}
+
+.testimonial-card {
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 2px solid transparent; 
+    transition: border-color var(--transition-speed), transform var(--transition-speed);
+    
+    /* EDITED: Setting a fixed width to ensure all three fit */
+    width: 30%; 
+    min-width: 300px; /* Ensure a minimum size so the content isn't squeezed */
+    flex-shrink: 0; /* Prevents cards from shrinking */
+}
+
+body.dark-mode .testimonial-card {
+    background-color: rgba(0, 0, 0, 0.7); 
+}
+
+.testimonial-card:hover {
+    border-color: var(--color-blue); 
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+}
+
+.testimonial-card p {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--color-black); 
+}
+
+body.dark-mode .testimonial-card p {
+    color: var(--color-black); 
+}
+
+
+.testimonial-card footer {
+    text-align: right;
+    font-weight: 600;
+    color: var(--color-blue);
+}
